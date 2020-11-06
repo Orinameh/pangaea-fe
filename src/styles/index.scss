@@ -1,0 +1,114 @@
+@import './colors';
+
+// Navbar
+.navbar {
+    padding: 2rem;
+    background-color: colors(whiteColor);
+    border-bottom: 1px solid colors(contentBg);
+    margin-bottom: 2rem;
+
+    >nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 8rem;
+
+        & .left {
+            gap: 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+
+            >p {
+                font-size: 2rem;
+                font-weight: normal;
+                letter-spacing: 7px;
+            }
+
+            > div {
+                display: flex;
+                gap: 2em;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.3rem;
+                letter-spacing: 1.5px;
+            }
+        }
+
+        & .right {
+            grid-gap: 3rem;
+            gap: 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            >p {
+                font-size: 1.3rem;
+                font-weight: normal;
+                letter-spacing: 1.5px;
+            }
+
+            > i {
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// content
+.content {
+    &__top {
+        padding: 10rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--left {
+            > h3 {
+                font-size: 4rem;
+                font-weight: 500;
+                margin-bottom: .5em;
+                letter-spacing: 2px;
+
+            }
+            > p {
+                font-size: 1.5rem;
+            }
+        }
+    
+    }
+
+    &__main {
+        background-color: colors(contentBg);
+        // height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        &--item {
+            padding: 5em 5em 1em 5em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            > img {
+                margin-bottom: 5rem;
+            }
+
+            > .title, .price {
+                font-size: 1.5rem;
+                margin-bottom: .5em;
+            }
+
+            > button {
+                background-color: colors(btnColor);
+                color: colors(whiteColor);
+                padding: 1em;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                width: 40%;
+            }
+        }
+    }
+}

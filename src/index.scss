@@ -1,0 +1,57 @@
+@import './styles/_colors';
+
+*,*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* to make it easy to calculate rem */
+html {
+  font-size: 62.5%;
+}
+
+// modal
+.modalBlock {
+  width: 100vw;
+  height: 100vh;
+  background: colors(modalOverallBg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  animation: fadeIn 0.1s linear both;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+.active .modalFormBlock {
+  --width: 400px;
+  width: var(--width);
+  transform: translateX(var(--width));
+  height: 100%;
+  background-color: colors(white);
+  padding: 20px;
+  overflow: auto;
+  margin-left: auto;
+  animation: modalSlideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+
+@keyframes modalSlideIn {
+  to {
+    transform: translateX(0);
+  }
+}

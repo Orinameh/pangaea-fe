@@ -1,0 +1,15 @@
+$colors: (
+  blackColor: #000000,
+  whiteColor: #ffffff,
+  contentBg: #E2E6E3,
+  btnColor: #4B5548,
+  modalBg: #F2F3EF,
+  modalOverallBg: #575d77cc
+
+);
+
+//map through the colors
+
+@function colors($colorName) {
+  @return map-get($map: $colors, $key: $colorName);
+}
