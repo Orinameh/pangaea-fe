@@ -15,6 +15,7 @@ const delay = setContext(
       }, 800);
     }),
 );
+
 const link = ApolloLink.from([delay, http]);
 const cache = new InMemoryCache();
 

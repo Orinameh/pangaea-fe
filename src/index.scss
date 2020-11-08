@@ -38,11 +38,11 @@ html {
 }
 
 .active .modalFormBlock {
-  --width: 400px;
+  --width: 450px;
   width: var(--width);
   transform: translateX(var(--width));
   height: 100%;
-  background-color: colors(white);
+  background: colors(modalBg);
   padding: 20px;
   overflow: auto;
   margin-left: auto;
@@ -54,4 +54,16 @@ html {
   to {
     transform: translateX(0);
   }
+}
+
+span[role="button"] {
+  outline: none;
+}
+
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  padding: 15rem;
 }
