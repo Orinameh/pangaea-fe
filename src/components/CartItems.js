@@ -56,9 +56,14 @@ function CartItems({
     const items = [...cartItems];
     let { qty } = items[i];
     setAddedItems((prevState) => [...prevState, items[i]]);
+
     qty++;
     cartItems[i].qty = qty;
     setCartItems(items);
+    setModal({
+      showModal: true,
+      modalType: 'showCart',
+    });
   }
 
   function decrease(i) {
@@ -69,7 +74,6 @@ function CartItems({
     cartItems[i].qty = qty;
     if (qty < 1) {
       filtered = items.filter((item) => item.id !== id);
-      console.log(filtered);
       setCartItems(filtered);
       setAddedItems(addedItems.filter((item) => item.id !== id));
       setModal({

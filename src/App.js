@@ -1,4 +1,4 @@
-import React, { createContext, useRef, useState } from 'react';
+import React, { createContext, useEffect, useRef, useState } from 'react';
 import { useQuery, gql } from '@apollo/react-hooks';
 import Modal from './common/Modal';
 import Content from './Content';
@@ -27,19 +27,11 @@ function App() {
   const { loading, error, data } = useQuery(GET_ITEMS, {
     variables: { currency },
   });
-
-  const [modal, setModal] = useState(
-    addedItems.length > 0
-      ? {
-          showModal: true,
-          modalType: 'showCart',
-        }
-      : {
-          showModal: false,
-          modalType: undefined,
-          modalItemId: '',
-        },
-  );
+  const [modal, setModal] = useState({
+    showModal: false,
+    modalType: undefined,
+    modalItemId: '',
+  });
 
   function getModalToShow() {
     switch (modal.modalType) {
@@ -63,6 +55,16 @@ function App() {
         return null;
     }
   }
+
+  useEffect(() => {
+    if (addedItems.length) {
+      setModal({
+        showModal: true,
+        modalType: 'showCart',
+        modalItemId: '',
+      });
+    }
+  }, [addedItems]);
 
   if (loading) {
     return <div className="loading">Loading Products...</div>;
