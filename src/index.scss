@@ -60,10 +60,15 @@ span[role="button"] {
   outline: none;
 }
 
-.loading, .error {
+.loading, .error, .noItem {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2.5rem;
   padding: 15rem;
+}
+
+.noItem {
+  font-size: 1.5rem;
+  padding: 10rem;
 }

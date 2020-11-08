@@ -54,40 +54,37 @@ function CartItems({
 
   function increase(i) {
     const items = [...cartItems];
-    let { qty } = items[i];
-    setAddedItems((prevState) => [...prevState, items[i]]);
-
+    const initialAdded = [...addedItems];
+    let { qty, id } = items[i];
+    setAddedItems((prevState) => [...prevState, initialAdded.find((initial) => initial.id === id)]);
     qty++;
-    cartItems[i].qty = qty;
+    items[i].qty = qty;
     setCartItems(items);
-    setModal({
-      showModal: true,
-      modalType: 'showCart',
-    });
   }
 
   function decrease(i) {
     let filtered;
     const items = [...cartItems];
+    const initialAdded = [...addedItems];
     let { qty, id } = items[i];
     qty--;
     cartItems[i].qty = qty;
+
     if (qty < 1) {
       filtered = items.filter((item) => item.id !== id);
       setCartItems(filtered);
       setAddedItems(addedItems.filter((item) => item.id !== id));
-      setModal({
-        showModal: true,
-        modalType: 'showCart',
-      });
     } else {
       cartItems[i].qty = qty;
       setCartItems(items);
+      const ind = initialAdded.findIndex((it) => it.id === id);
+      initialAdded.splice(ind, 1);
+      setAddedItems(initialAdded);
     }
   }
 
   if (cartItems.length === 0) {
-    return <div>No items in your cart</div>;
+    return <div className="noItem">No items in your cart</div>;
   }
   function close() {
     setModal({

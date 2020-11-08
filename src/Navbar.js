@@ -26,7 +26,7 @@ const Navbar = forwardRef(({ setModal }, ref) => {
           <p>Account</p>
 
           <span onClick={openCart} aria-hidden="true">
-            <i className="fa fa-shopping-cart"></i> <sup>{addedItems.length}</sup>
+            <i className="fa fa-shopping-cart"></i> {<sup>{addedItems.length}</sup>}
           </span>
         </div>
       </nav>
