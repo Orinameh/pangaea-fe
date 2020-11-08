@@ -8,8 +8,6 @@ function CartItems({
   currency: curr_,
   setModal,
   setAddedItems,
-  //   cartItems,
-  //   setCartItems,
 }) {
   const [sub, setSub] = useState(0);
   const [cartItems, setCartItems] = useState([]);

@@ -20,11 +20,9 @@ const GET_ITEMS = gql`
 export const ProdContext = createContext(undefined);
 
 function App() {
-  // const [itemAdded, setItemAdded] = useState(0);
   const [currency, setCurrency] = useState('USD');
   const [addedItems, setAddedItems] = useState([]);
   const navRef = useRef();
-  // const [cartItems, setCartItems] = useState([]);
 
   const { loading, error, data } = useQuery(GET_ITEMS, {
     variables: { currency },
